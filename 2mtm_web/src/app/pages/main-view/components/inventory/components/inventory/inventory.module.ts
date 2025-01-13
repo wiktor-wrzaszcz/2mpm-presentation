@@ -1,0 +1,22 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { BodySlotsComponent } from '../body-slots/body-slots.component';
+import { EditableRowModule } from 'src/app/shared/components/table/editable-row/editable-row.module';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { BodySlotComponent } from '../body-slots/body-slot/body-slot.component';
+import { InventoryComponent } from './inventory.component';
+import { TableModule } from 'src/app/shared/components/table/table/table.module';
+import { CharacterHeaderModule } from 'src/app/shared/components/character-header/character-header.module';
+import { BackpackComponent } from '../backpack/backpack.component';
+import { TableHeaderModule } from 'src/app/shared/components/table/table-header/table-header.module';
+import { RigComponent } from '../rig/rig.component';
+import { PocketsComponent } from '../pockets/pockets.component';
+import { IonicModule } from '@ionic/angular';
+import { CarryWeightTableModule } from 'src/app/shared/components/display-tables/common-tables/carry-weight-table/carry-weight-table.module';
+import { ArmorResistanceTableModule } from 'src/app/shared/components/display-tables/common-tables/armor-resistance-table/armor-resistance-table.module';
+import { EquippedWeaponsTableModule } from 'src/app/shared/components/display-tables/common-tables/equipped-weapons-table/equipped-weapons-table.module';
+import { ItemsContainerWithBookmarksComponent } from '../items-container-with-bookmarks/items-container-with-bookmarks.component';
+import { TooltipDirectiveModule } from 'src/app/shared/directives/tooltip/tooltip.module';
+import { SelectableContainerModule } from 'src/app/shared/components/selectable-container/selectable-container.module';
+
+This is a placeholder for inventory.module.ts

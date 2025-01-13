@@ -1,0 +1,31 @@
+import { Server as SocketIoServer, Socket } from "socket.io";
+import { Server } from "http";
+import { ItemsAction } from "../../models/game-items-actions";
+import SessionItemsService from "./items/session-items.service";
+import SessionContainersService from "./containers/session-containers.service";
+import { ContainersAction } from "../../models/game-containers-actions";
+import { GamesCharDetailsRegistryManager } from "./char-details/games-characters-registry-manager";
+import SessionCharactersService from "./char-details/session-characters.service";
+import CharacterService from "../character.service";
+import { GamesDetailsRegistryManager } from "./game-details/game-details-registry-manager";
+import GamesService from "../games.service";
+import { GameDetailsAction } from "../../models/game-details.actions";
+import SessionGameDetailsService from "./game-details/session-game-details.service";
+import { CharDetailsAction } from "../../models/game-character-actions";
+import EventEmitter from "events";
+import { HideoutsAction } from "../../models/game-hideouts-actions";
+import { SocketIoDatabaseUpdatesService } from "./socket-io-database-updates.service";
+import SessionHideoutsService from "./hideouts/session-hideouts.service";
+import { HideoutsRegistryManager } from "./hideouts/hideouts-registry-manager";
+import { StateFetchResolver } from "./state-fetch-resolver";
+import { SocketCallbacksHandler } from "./socket-callbacks-handler";
+import { VehiclesRegistryManager } from "./vehicles/vehicles-registry-manager";
+import SessionVehiclesService from "./vehicles/session-vehicles.service";
+import { azureMiddlewareFunc } from "../../middlewares/socket-io-azure.middleware";
+import { InMemoryGameStateManager } from "../snapshots/in-memory-game-state.manager";
+import { GameLocksHandler } from "../snapshots/game-locks-handler";
+import { GamesItemsContainersRegistryManager } from "./games-items-container-registry-manager";
+import { env } from "process";
+import { StatePartType } from "../../utils/snapshots.utils";
+
+This is a placeholder for socket-io.service.ts

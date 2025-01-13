@@ -1,0 +1,35 @@
+import AmmunitionType from "./ammunition-type.interface";
+import AnomalyInjectorType from "./anomaly-injector-type.interface";
+import ArmorType from "./armor-type.interface";
+import AttachmentItemType from "./attachment-item-type.interface";
+import BackpackType from "./backpack-type.interface";
+import BallisticModuleType from "./balistic-module-type.interface";
+import BaseItemType from "./base-item-type.interface";
+import BowType from "./bow-type.interface";
+import ChemicalType from "./chemical-type.interface";
+import ClothingType from "./clothing-type.interface";
+import ConsumableItemType from "./consumable-type.interface";
+import CraftableItemType from "./craftable-type.interface";
+import DefaultBaseItemType from "./default-base-item-type.interface";
+import ElectricType from "./electric-type.interface";
+import EssenceType from "./essence-type.interface";
+import ExplosiveType from "./explosive-type.interface";
+import FirearmWeaponType from "./firearm-weapon-type.interface";
+import FoodType from "./food-type.interface";
+import HerbType from "./herb-type.interface";
+import LiquidType from "./liquid-type.interface";
+import MagazineType from "./magazine-type.interface";
+import MaterialType from "./material-type.interface";
+import MechanicType from "./mechanic-type.interface";
+import MedicalType from "./medical-type.interface";
+import { MeleeWeaponType } from "./melee-weapon-type.interface";
+import MiscType from "./misc-type.interface";
+import { MultiuseItemType } from "./multiuse-type.interface";
+import RigType from "./rig-type.interface";
+import { ShieldType } from "./shield-type.interface";
+import SkillbookType from "./skillbook-type.interface";
+import SlottableItemType from "./slottable-type.interface";
+import { StackableItemType } from "./stackable-type.interface";
+import ToolType from "./tool-type.interface";
+
+This is a placeholder for aggregated-all-items-type.interface.ts

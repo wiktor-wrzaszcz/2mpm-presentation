@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ItemDetailsModalComponent } from './item-details-modal.component';
+import { IonicModule } from '@ionic/angular';
+import { BaseModalModule } from '../../base-modal/base-modal.module';
+import { CraftingComponent } from './components/crafting/crafting.component';
+import { ArmorStatsComponent } from './components/armor-stats/armor-stats.component';
+import { BasicInfoComponent } from './components/basic-info/basic-info.component';
+import { AttachmentDetailsComponent } from './components/attachment-details/attachment-details.component';
+import { AllowedModsAndAttachmentsComponent } from './components/allowed-mods-and-attachments/allowed-mods-and-attachments.component';
+import { BackpackRigComponent } from './components/backpack-rig/backpack-rig.component';
+import { EffectsComponent } from './components/effects/effects.component';
+import { ArmorEffectsComponent } from './components/armor-effects/armor-effects.component';
+import { RangedWeaponBowComponent } from './components/ranged-weapon-bow/ranged-weapon-bow.component';
+import { ConsumableComponent } from './components/consumable/consumable.component';
+import { MeleeWeaponComponent } from './components/melee-weapon/melee-weapon.component';
+import { ExplosiveComponent } from './components/explosive/explosive.component';
+import { ModsInfoComponent } from './components/mods-info/mods-info.component';
+import { CurrentAttachmentsInfoComponent } from './components/current-attachments-info/current-attachments-info.component';
+
+This is a placeholder for item-details-modal.module.ts

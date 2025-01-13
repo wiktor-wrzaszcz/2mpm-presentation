@@ -1,0 +1,20 @@
+import { OverlayEventDetail } from '@ionic/react/dist/types/components/react-component-lib/interfaces';
+import { CharactersRegisterManagerStore } from 'src/app/core/game/char-details/game-characters-register-manager.store';
+import { CharactersRegisterStore } from 'src/app/core/game/char-details/game-characters-register.store';
+import { GameDetailsRegisterManagerStore } from 'src/app/core/game/game-details/game-details-register-manager';
+import { HideoutsActionResolver } from 'src/app/core/game/hideouts/hideouts-action-resolver';
+import { HideoutsRegisterManagerStore } from 'src/app/core/game/hideouts/hideouts-registry-manager';
+import { DestructiveOperationAlertService } from 'src/app/shared/alerts/destructive-operation.service';
+import { FacilitiesModalComponent } from 'src/app/shared/modals/in-game-modals/facilities-modal/facilities-modal.component';
+import { HideoutsModalComponent } from 'src/app/shared/modals/in-game-modals/hideouts-modal/hideouts-modal.component';
+import { ManageNpcHideoutsModalComponent } from 'src/app/shared/modals/in-game-modals/manage-npc-hideouts-modal/manage-npc-hideouts-modal.component';
+import { ModalAnimationsCreatorService } from 'src/app/shared/modals/modal-animations';
+import { AutoPositioningInfoPopoverLogic } from 'src/app/shared/popovers/auto-positioning-info-popover/auto-positioning-info-popover-logic';
+import { ContextMenuPopoverComponent } from 'src/app/shared/popovers/context-menu-popover/context-menu-popover.component';
+import { CreaturePopulated } from 'src/be-models/interfaces/characters/base-creature';
+import { NPC } from 'src/be-models/interfaces/characters/npc';
+import { FacilityDefinition } from 'src/be-models/interfaces/hideouts/facility-def.interface';
+import { FacilityInstance } from 'src/be-models/interfaces/hideouts/facility-instance.interface';
+import { Hideout } from 'src/be-models/interfaces/hideouts/hideout.interface';
+
+This is a placeholder for hideouts-store-listeners.ts

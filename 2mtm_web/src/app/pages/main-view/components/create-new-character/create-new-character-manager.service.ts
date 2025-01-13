@@ -1,0 +1,34 @@
+import { Injectable, NgZone } from '@angular/core';
+import { CharacterService } from 'src/app/core/api/services/character-service/character.service';
+import AggregatedAllItemsType from 'src/be-models/interfaces/item-definitions/types/aggregated-all-items-type.interface';
+import BaseItem from 'src/be-models/interfaces/items/base-item.interface';
+import { ItemsRegisterStore } from '../../../../core/game/items/game-items-register.store';
+import { GameItemsUtils } from '../../../../core/game/items/game-items-utils';
+import { CreateNewCharacterStepsResolver } from './create-new-character-steps-resolver';
+import { ItemsService } from 'src/app/core/api/services/items-service/items-service.service';
+import { Router } from '@angular/router';
+import { AppService } from 'src/app/core/services/app.service';
+import { LoadingController, ToastController } from '@ionic/angular';
+import { OnlineSessionService } from 'src/app/core/api/services/online-session-service/online-session.service';
+import { Attributes } from 'src/be-models/interfaces/characters/attributes';
+import { TraitsUtils } from 'src/app/utils/traits-utils';
+import { ItemsRegisterManagerStore } from 'src/app/core/game/items/game-items-register-manager.store';
+import { ContainersRegisterStore } from 'src/app/core/game/containers/game-containers-register.store';
+import { CharactersRegisterManagerStore } from 'src/app/core/game/char-details/game-characters-register-manager.store';
+import { ContainersRegisterManagerStore } from 'src/app/core/game/containers/game-containers-register-manager.store';
+import { LoggedUserName } from 'src/app/core/api/services/auth-service/auth.service';
+import { GameDetailsRegisterManagerStore } from 'src/app/core/game/game-details/game-details-register-manager';
+import { CreatureType } from 'src/be-models/interfaces/characters/creature-type.enum';
+import { MainMenuService } from 'src/app/pages/main-menu/main-menu.service';
+import { CharactersUtils } from 'src/app/core/game/char-details/game-characters-utils';
+import { CharactersRegisterStore } from 'src/app/core/game/char-details/game-characters-register.store';
+import { CreaturePopulated } from 'src/be-models/interfaces/characters/base-creature';
+import { NPCPopulated, NPC } from 'src/be-models/interfaces/characters/npc';
+import { MainViewUtils } from '../../utils/main-view-utils';
+import { LocalStorageService } from 'src/app/core/services/local-storage.service';
+import { ItemsUtils } from 'src/app/utils/items.utils';
+import GlobalUtils from 'src/app/utils/global-utils';
+import { FoodCategory } from 'src/be-models/interfaces/item-definitions/enums/food-category.enum';
+import { GameDetailsSnapshotContent } from 'src/be-models/interfaces/snapshot/game-details-snapshot.interface';
+
+This is a placeholder for create-new-character-manager.service.ts

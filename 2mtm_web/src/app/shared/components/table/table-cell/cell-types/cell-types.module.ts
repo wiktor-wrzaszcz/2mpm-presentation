@@ -1,0 +1,21 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TooltipDirectiveModule } from 'src/app/shared/directives/tooltip/tooltip.module';
+import { FixedCellComponent } from './form-cells/fixed-cell/fixed-cell.component';
+import { ActionsCellComponent } from './form-cells/actions-cell/actions-cell.component';
+import { DirectlyEditableNumberCellComponent } from './directly-editable-cells/directly-editable-number-cell/directly-editable-number-cell.component';
+import { DirectlyEditableTextCellComponent } from './directly-editable-cells/directly-editable-text-cell/text-cell/directly-editable-text-cell.component';
+import { BooleanCellComponent } from './form-cells/boolean-cell/boolean-cell.component';
+import { NumberCellComponent } from './form-cells/number-cell/number-cell.component';
+import { SelectCellComponent } from './form-cells/select-cell/select-cell.component';
+import { TextCellComponent } from './form-cells/text-cell/text-cell.component';
+import { TextWithInformationCellComponent } from './form-cells/text-with-information-cell/text-with-information-cell.component';
+import { TextCellWithModifierComponent } from './directly-editable-cells/text-cell-with-modifier/text-cell-with-modifier.component';
+import { CraftableComponentsCellComponent } from './form-cells/craftable-components-cell/craftable-components-cell.component';
+import { CraftableAbilitiesCellComponent } from './form-cells/craftable-abilties-cell/craftable-abilities-cell.component';
+import { LootPoolWithQuantitativeCell } from './feature-specific-cells/loot-pool-with-quantitative-cell/loot-pool-with-quantitative-cell.component';
+import { AutoPositioningInfoPopoverModule } from 'src/app/shared/popovers/auto-positioning-info-popover/auto-positioning-info-popover.module';
+
+This is a placeholder for cell-types.module.ts

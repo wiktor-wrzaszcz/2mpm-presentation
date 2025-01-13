@@ -1,0 +1,22 @@
+import { Router } from '@angular/router';
+import { PopoverController } from '@ionic/angular';
+import { Subscription } from 'rxjs';
+import { CharactersRegisterManagerStore } from 'src/app/core/game/char-details/game-characters-register-manager.store';
+import { GameDetailsRegisterManagerStore } from 'src/app/core/game/game-details/game-details-register-manager';
+import { BackgroundPopulated } from 'src/be-models/interfaces/backgrounds/background.interface';
+import { CharacterPopulated } from 'src/be-models/interfaces/characters/character';
+import { DietInfo } from 'src/be-models/interfaces/characters/diet-info';
+import { FoodCategory } from 'src/be-models/interfaces/item-definitions/enums/food-category.enum';
+import { TraitPopulated } from 'src/be-models/interfaces/traits/trait.interface';
+import { TooltipPopoverComponent } from '../../popovers/tooltip-popover/tooltip-popover.component';
+import { LevelUpGuard } from 'src/app/pages/main-view/components/level-up-character/level-up.guard';
+import { CharactersUtils } from 'src/app/core/game/char-details/game-characters-utils';
+import { CreateNewCharacterManagerService } from 'src/app/pages/main-view/components/create-new-character/create-new-character-manager.service';
+import { ChangeLevelPopoverComponent } from '../../modals/in-game-modals/change-level-popover/change-level-popover.component';
+import { CreaturePopulated } from 'src/be-models/interfaces/characters/base-creature';
+import { MonsterPopulatedWithDefinition } from 'src/be-models/interfaces/characters/monster';
+import { NPCPopulated } from 'src/be-models/interfaces/characters/npc';
+import { DietCompositionBreakdownPopoverComponent } from '../../popovers/diet-composition-breakdown-popover/diet-composition-breakdown-popover/diet-composition-breakdown-popover.component';
+import { GameDetailsSnapshotContent } from 'src/be-models/interfaces/snapshot/game-details-snapshot.interface';
+
+This is a placeholder for character-header.component.ts

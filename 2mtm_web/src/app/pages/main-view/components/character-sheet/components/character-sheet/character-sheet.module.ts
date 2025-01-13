@@ -1,0 +1,20 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { CharacterSheetComponent } from './character-sheet.component';
+import { CharacterHeaderModule } from 'src/app/shared/components/character-header/character-header.module';
+import { AbilitiesTableModule } from 'src/app/shared/components/display-tables/common-tables/abilities-table/abilities-table.module';
+import { ArmorResistanceTableModule } from 'src/app/shared/components/display-tables/common-tables/armor-resistance-table/armor-resistance-table.module';
+import { AttackBonusesTableModule } from 'src/app/shared/components/display-tables/common-tables/attack-bonuses-table/attack-bonuses-table.module';
+import { AttributesTableModule } from 'src/app/shared/components/display-tables/common-tables/attributes-table/attributes-table.module';
+import { ConditionEffectsTableModule } from 'src/app/shared/components/display-tables/common-tables/condition-effects-table/condition-effects-table.module';
+import { DimdTableModule } from 'src/app/shared/components/display-tables/common-tables/dimd-table/dimd-table.module';
+import { EquippedWeaponsTableModule } from 'src/app/shared/components/display-tables/common-tables/equipped-weapons-table/equipped-weapons-table.module';
+import { ToHitBonusTableModule } from 'src/app/shared/components/display-tables/common-tables/to-hit-bonus-table/to-hit-bonus-table.module';
+import { TrackTableModule } from 'src/app/shared/components/display-tables/common-tables/track-table/track-table.module';
+import { CustomAbilitiesTableModule } from 'src/app/shared/components/display-tables/monster-tables/custom-abilities-table/custom-abilities-table.module';
+import { MonsterDurabilityTableModule } from 'src/app/shared/components/display-tables/monster-tables/monster-durability-table/monster-durability-table.module';
+import { MonsterWeaponsTableModule } from 'src/app/shared/components/display-tables/monster-tables/monster-weapons-table/monster-weapons-table.module';
+import { SkillsTableModule } from 'src/app/shared/components/display-tables/common-tables/skills-table/skills-table.module';
+import { TableModule } from 'src/app/shared/components/table/table/table.module';
+
+This is a placeholder for character-sheet.module.ts
