@@ -15,7 +15,7 @@ Content of follow files with code is available (for loot pools feature, which al
 
 Frontend:
 
-2mtm_web/src/app/core/api/stores/lootpools.store.ts
+[2mtm_web/src/app/core/api/stores/lootpools.store.ts](2mtm_web/src/app/core/api/stores/lootpools.store.ts)
 
 2mtm_web/src/app/core/api/services/lootpools-service/lootpools.service.ts
 
