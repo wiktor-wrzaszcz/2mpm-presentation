@@ -17,28 +17,28 @@ Frontend:
 
 [2mtm_web/src/app/core/api/stores/lootpools.store.ts](2mtm_web/src/app/core/api/stores/lootpools.store.ts)
 
-2mtm_web/src/app/core/api/services/lootpools-service/lootpools.service.ts
+[2mtm_web/src/app/core/api/services/lootpools-service/lootpools.service.ts](2mtm_web/src/app/core/api/services/lootpools-service/lootpools.service.ts)
 
-2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/ammo-magazine.resolver.ts
-2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools-resolvers.utils.ts
-2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools.resolver.ts
-2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/single-loot-pool.resolver.ts
+[2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/ammo-magazine.resolver.ts](2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/ammo-magazine.resolver.ts)
+[2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools-resolvers.utils.ts](2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools-resolvers.utils.ts
+)
+[2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools.resolver.ts](2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools.resolver.ts)
+[2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/single-loot-pool.resolver.ts](2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/single-loot-pool.resolver.ts)
 
-2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.html
-2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.scss
-2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.ts
+[2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.html](2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.html)
+[2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.scss](2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.scss)
+[2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.ts](2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.ts)
 
 Backend: 
 
-2mtm_api2/src/controllers/lootpools.controller.ts
-2mtm_api2/src/services/lootpools.service.ts
-2mtm_api2/src/repositories/loot-pools.repository.ts
+[2mtm_api2/src/controllers/lootpools.controller.ts](2mtm_api2/src/controllers/lootpools.controller.ts)
+[2mtm_api2/src/services/lootpools.service.ts](2mtm_api2/src/services/lootpools.service.ts)
+[2mtm_api2/src/repositories/loot-pools.repository.ts](2mtm_api2/src/repositories/loot-pools.repository.ts)
 
-2mtm_api2/src/interfaces/lootpools/lootpool.interface.ts
+[2mtm_api2/src/interfaces/lootpools/lootpool.interface.ts](2mtm_api2/src/interfaces/lootpools/lootpool.interface.ts)
 
-2mtm_api2/src/mongoose/schemas/lootpools/lootpool-record.schema.ts
-2mtm_api2/src/mongoose/schemas/lootpools/lootpool.schema.ts
-
+[2mtm_api2/src/mongoose/schemas/lootpools/lootpool-record.schema.ts](2mtm_api2/src/mongoose/schemas/lootpools/lootpool-record.schema.ts)
+[2mtm_api2/src/mongoose/schemas/lootpools/lootpool.schema.ts](2mtm_api2/src/mongoose/schemas/lootpools/lootpool.schema.ts)
 
 Loot pools component highlighted:
 ![Lootpools](https://github.com/user-attachments/assets/dc179f58-c004-4ad3-b88d-07ff19fa3951)
