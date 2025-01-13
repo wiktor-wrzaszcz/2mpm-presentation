@@ -41,4 +41,5 @@ Backend:
 
 
 Loot pools component highlighted:
-<img width="1727" alt="image" src="https://github.com/user-attachments/assets/33749038-1ce6-476d-b3cd-68d434c21a9a" />
+![Lootpools](https://github.com/user-attachments/assets/dc179f58-c004-4ad3-b88d-07ff19fa3951)
+
