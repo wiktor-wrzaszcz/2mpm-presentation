@@ -7,3 +7,38 @@ Short description of content:
 3. 2mpm-api2: Main project for API - contains game server logic, authentication, endpoints and many more.
 4. 2mtm-web: Angular/Ionic frontend for main application and most of the features.
 5. auth-ui: Small project with brand customisation for Azure B2C logging site.
+
+Content of follow files with code is available (for loot pools feature, which allows GM to generate items randomly based on specific group type and quality):
+
+
+
+
+Frontend:
+
+2mtm_web/src/app/core/api/stores/lootpools.store.ts
+
+2mtm_web/src/app/core/api/services/lootpools-service/lootpools.service.ts
+
+2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/ammo-magazine.resolver.ts
+2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools-resolvers.utils.ts
+2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/loot-pools.resolver.ts
+2mtm_web/src/app/pages/main-view/components/gm-items/loot-pools-resolver/single-loot-pool.resolver.ts
+
+2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.html
+2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.scss
+2mtm_web/src/app/pages/main-view/components/gm-items/components/create-new-items-modal/loot-pool-panel/loot-pool-panel.component.ts
+
+Backend: 
+
+2mtm_api2/src/controllers/lootpools.controller.ts
+2mtm_api2/src/services/lootpools.service.ts
+2mtm_api2/src/repositories/loot-pools.repository.ts
+
+2mtm_api2/src/interfaces/lootpools/lootpool.interface.ts
+
+2mtm_api2/src/mongoose/schemas/lootpools/lootpool-record.schema.ts
+2mtm_api2/src/mongoose/schemas/lootpools/lootpool.schema.ts
+
+
+Loot pools component highlighted:
+<img width="1727" alt="image" src="https://github.com/user-attachments/assets/33749038-1ce6-476d-b3cd-68d434c21a9a" />
