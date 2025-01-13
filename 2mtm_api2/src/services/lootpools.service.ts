@@ -1,4 +1,15 @@
 import LootPoolsRepository from "../repositories/loot-pools.repository";
 import { StaticDataStore } from "./socket-io/static-data-store";
 
-This is a placeholder for lootpools.service.ts
+export default class LootPoolsService {
+  constructor(private lootpoolsRepo: LootPoolsRepository) {}
+
+  async getLootPools() {
+    return StaticDataStore.getLootPools();
+  }
+
+  async getLootPoolById(lootpoolId: string) {
+    const lootpools = await this.lootpoolsRepo.getLootPoolById(lootpoolId);
+    return lootpools;
+  }
+}

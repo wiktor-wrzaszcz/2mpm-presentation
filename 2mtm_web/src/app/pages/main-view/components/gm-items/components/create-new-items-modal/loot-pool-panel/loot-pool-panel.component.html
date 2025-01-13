@@ -1,1 +1,47 @@
-This is a placeholder for loot-pool-panel.component.html
+<div class="selected-loot-pool-main">
+  <ion-button
+    color="secondary"
+    class="move-loot-pools-results-button"
+    *ngIf="lootPoolResults.length > 0"
+    (click)="moveItemsToPicked($event)"
+    [disabled]="addingDisabled"
+  >
+    <ion-icon class="" slot="icon-only" name="play-back-outline"></ion-icon>
+  </ion-button>
+  <div class="loot-pool-results-title">Loot Pool Roll Results</div>
+  <app-table
+    #table
+    [columnDefinitions]="basketColumnDefinitions"
+    [data]="lootPoolResults"
+    [defaultTrackBy]="true"
+    [height]="lootPoolResultsHeight"
+    [tableType]="'items'"
+    [dragDropSettings]="{
+      dragDropId: 'lootPoolRoll',
+      role: 'container',
+      readonly: true
+    }"
+  ></app-table>
+  <div class="no-loot-pool-rolled" *ngIf="lootPoolResults.length === 0">
+    Select lootpool and quality (if applicable)
+  </div>
+</div>
+
+<ion-segment value="1" (ionChange)="lootPoolQualityChanged($event)">
+  <ion-segment-button value="1"> Q1 </ion-segment-button>
+  <ion-segment-button value="2"> Q2 </ion-segment-button>
+  <ion-segment-button value="3"> Q3 </ion-segment-button>
+  <ion-segment-button value="4"> Q4 </ion-segment-button>
+  <ion-segment-button value="5"> Q5 </ion-segment-button>
+</ion-segment>
+
+<div class="results-table loot-pools-table">
+  <app-table
+    [columnDefinitions]="lootPoolColumnDef"
+    [data]="lootPoolsData"
+    [rowClickBehaviour]="3"
+    [defaultTrackBy]="true"
+    [height]="'100%'"
+    (rowSelected)="handleLootPoolSelection($event)"
+  ></app-table>
+</div>

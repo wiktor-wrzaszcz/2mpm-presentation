@@ -7,6 +7,6 @@ import { TableModule } from 'src/app/shared/components/table/table/table.module'
 import { CreateNewItemsModsModalComponent } from './create-new-items-customization-modal/create-new-items-mods-modal/create-new-items-mods-modal.component';
 import { CreateNewItemsCustomizationModalComponent } from './create-new-items-customization-modal/create-new-items-customization-modal.component';
 import { FormsModule } from '@angular/forms';
-import { LootPoolPanelComponent } from './loot-pool-panel/loot-pool-panel.component';
+import { LootPoolPanelComponent } from './loot-pool-panel-old/loot-pool-panel.component';
 
 This is a placeholder for create-new-items-modal.module.ts

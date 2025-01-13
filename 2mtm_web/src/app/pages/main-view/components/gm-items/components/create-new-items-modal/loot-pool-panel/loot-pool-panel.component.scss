@@ -1,1 +1,49 @@
-This is a placeholder for loot-pool-panel.component.scss
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.selected-loot-pool-main {
+  position: relative;
+  width: 246px;
+  margin: auto;
+
+  .no-loot-pool-rolled {
+    position: absolute;
+    top: calc(50% + 34px);
+    left: calc(50%);
+    transform: translate(-50%, -50%);
+    width: 200px;
+    text-align: center;
+  }
+
+  .move-loot-pools-results-button {
+    position: absolute;
+    top: 125px;
+    left: -60px;
+    height: 40px;
+    --padding-start: 10px;
+    --padding-end: 12px;
+    --border-radius: 20px;
+  }
+
+  .loot-pool-results-title {
+    padding: 10px;
+  }
+}
+
+ion-segment-button {
+  min-width: 0px;
+}
+.loot-pools-table {
+  width: min-content;
+  display: flex;
+  margin: auto;
+  flex: 1;
+  overflow: hidden;
+  app-table {
+    --table-scrollbar-gutter: stable;
+    --table-height: 100%;
+  }
+}
