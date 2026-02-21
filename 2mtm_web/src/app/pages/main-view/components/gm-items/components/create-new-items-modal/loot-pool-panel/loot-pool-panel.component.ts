@@ -44,6 +44,10 @@ export class LootPoolPanelComponent {
 
   @Input() addingDisabled = false;
 
+  /**
+   * Initializes the component, strips the actions column from the basket column definitions,
+   * and creates the LootPoolsResolver with the injected stores and quality tier observable.
+   */
   constructor(
     public itemDefinitionsStore: ItemDefinitionsStoreService,
     @Optional() private lootpoolsStore: LootPoolStoreService,
@@ -61,6 +65,7 @@ export class LootPoolPanelComponent {
     );
   }
 
+  /** Loads the loot pool tree data when a loot pool store is available and marks the view for re-check. */
   async ngOnInit() {
     if (this.lootpoolsStore) {
       this.lootPoolsData =
@@ -84,6 +89,7 @@ export class LootPoolPanelComponent {
   lootPoolResults: EquipmentTableElement[] = [];
   lootPoolsResolver: LootPoolsResolver;
 
+  /** Resolves the items for the selected loot pool and, after the table re-renders, expands all child containers. */
   async handleLootPoolSelection(lootPoolSelected: LootPoolTableElement) {
     this.lootPoolResults = await this.lootPoolsResolver.resolveLootPoolItems(
       lootPoolSelected.id
@@ -92,10 +98,17 @@ export class LootPoolPanelComponent {
     setTimeout(() => this.lootPoolRollTable.openAllChildrensContainers(), 0);
   }
 
+  /** Updates the selected quality tier observable when the player changes the quality selector. */
   lootPoolQualityChanged(event) {
     this.selectedQualityTier$.next(Number(event.detail.value));
   }
 
+  /**
+   * Moves all currently resolved loot pool results into the picked items registry.
+   * Each item is duplicated with updated child IDs, actions are set to allow removal,
+   * and an ItemsAddAction is dispatched for each item. Does nothing if adding is disabled
+   * or no results are present.
+   */
   moveItemsToPicked(event) {
     if (this.addingDisabled) {
       return;
@@ -121,6 +134,10 @@ export class LootPoolPanelComponent {
     // }
   }
 
+  /**
+   * Resets all container item lists and attachment slot collections on the given item to empty arrays.
+   * This is needed to prevent duplication when items are re-registered through the registry system.
+   */
   private clearContainerItemsAndAttachments(item: BaseItem) {
     if (item.containerItemsIds) {
       item.containerItemsIds = [];
@@ -142,6 +159,11 @@ export class LootPoolPanelComponent {
     }
   }
 
+  /**
+   * Creates a deep copy of the item, assigns it a new unique ID, and recursively processes
+   * all direct children, updating their parent references to point to the new copy.
+   * Returns a flat array containing the duplicated root item followed by all its descendants.
+   */
   private duplicateItemAndUpdateChildrenIds(baseItem: BaseItem): BaseItem[] {
     const returnArray = [];
 
@@ -168,6 +190,10 @@ export class LootPoolPanelComponent {
     return returnArray;
   }
 
+  /**
+   * Wraps an item payload in an ItemsAddAction, placing it in the 'picked' container
+   * if it has no parent container, or in its designated parent container otherwise.
+   */
   private createRegistryItemsAddActionFromItem(
     itemPayload: BaseItem
   ): ItemsAddAction {

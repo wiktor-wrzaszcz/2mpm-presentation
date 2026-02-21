@@ -8,10 +8,12 @@ import { LootPoolService } from '../services/lootpools-service/lootpools.service
   providedIn: 'root',
 })
 export class LootPoolStoreService {
+  /** Shared observable that fetches all loot pool definitions once and replays the result to all subscribers. */
   lootPoolDefinitions$: Observable<LootPool[]> = this.lootpoolService
     .getAllLootPools()
     .pipe(shareReplay(1));
 
+  /** Resolves the loot pool definitions observable as a one-time promise, returning all available loot pools. */
   get getLootPoolDefinitions() {
     return lastValueFrom(this.lootPoolDefinitions$);
   }

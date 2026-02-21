@@ -8,10 +8,19 @@ import { BehaviorSubject } from 'rxjs';
 import { LootPoolsResolversUtils } from './loot-pools-resolvers.utils';
 
 export class SingleLootPoolResolver {
+  /** Initializes the resolver with the loot pool data store and the current quality tier observable. */
   constructor(
     private lootPoolsStore: LootPoolStoreService,
     private selectedQualityTier$: BehaviorSubject<number>
   ) {}
+
+  /**
+   * Recursively resolves a loot pool roll for the given pool ID.
+   * Rolls a winner record from the pool using the current quality tier, then follows
+   * nested pool references until a concrete item record is reached.
+   * The additionalDataMap accumulates contextual data (e.g. tier modifiers) encountered
+   * along the resolution path and is attached to each final RollResolution result.
+   */
   public async resolveSingleLootPool(
     id: string,
     additionalDataMap?: Map<string, any>
@@ -78,6 +87,11 @@ export class SingleLootPoolResolver {
     return rollResolutions;
   }
 
+  /**
+   * Attempts to roll a winner for the requested quality tier.
+   * If no records carry weight for that tier, increments the tier and retries recursively.
+   * Returns undefined if the tier exceeds 5 and no valid tier is found.
+   */
   private rollQualityTierRecurs(
     lootPoolInstance: LootPool,
     qualityTier: number
@@ -101,6 +115,11 @@ export class SingleLootPoolResolver {
     }
   }
 
+  /**
+   * Performs a weighted random selection over the loot pool records using the specified quality property.
+   * Iterates through records, subtracting each record's weight from a random value until the counter
+   * drops to zero or below, selecting that record as the winner.
+   */
   private rollLootPoolWinner(
     qualitySum: number,
     lootPoolInstance: LootPool,
