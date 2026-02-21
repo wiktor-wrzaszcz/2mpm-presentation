@@ -10,15 +10,18 @@ import {
 } from "../services/socket-io/static-data-store";
 
 export default class LootPoolsRepository {
+  /** Fetches all loot pool documents from the database as plain JavaScript objects. */
   async getLootPools() {
     return (await LootPoolModel.find({}).lean()) as LootPool[];
   }
 
+  /** Fetches a single loot pool document by its unique ID. */
   async getLootPoolById(id: string) {
     return await LootPoolModel.findById(id);
   }
 
   // Only for API calls (f.ex. for CSV file), never to be used in app
+  /** Groups the provided raw loot pool records by their pool ID, constructs pool objects, and persists them. */
   async createLootPools(lootpools: LootPoolRecord[]) {
     const lootPoolObjects: LootPool[] = [];
     const groupedLootPools = GlobalUtils.groupBy<string, LootPoolRecord>(
@@ -32,6 +35,7 @@ export default class LootPoolsRepository {
     return await this.resolveAndCreateNewLootPool(lootPoolObjects);
   }
 
+  /** Iterates over the provided loot pool objects, upserts each one in the database, then invalidates the static data cache. */
   private async resolveAndCreateNewLootPool(lootpools: any[]) {
     const results = [];
     // TODO: consider "reduce"
@@ -49,6 +53,10 @@ export default class LootPoolsRepository {
     return results;
   }
 
+  /**
+   * Upserts a single loot pool document using the item's ID as the database key.
+   * Throws a descriptive error if the operation fails.
+   */
   private async executeNewDefinitionCreation<T extends LootPool>(
     model: Model<Omit<T, "id"> & mongoose.Document>,
     newItem: T

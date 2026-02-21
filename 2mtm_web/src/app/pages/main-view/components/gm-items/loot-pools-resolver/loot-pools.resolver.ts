@@ -48,6 +48,7 @@ export class LootPoolsResolver {
     'WM_Mjolnir_anti-tank_laucher',
   ].map((x) => x + '_default');
 
+  /** Initializes the resolver with required stores and creates the helper resolver instances for single pool and ammo/magazine rolls. */
   constructor(
     private lootPoolsStore: LootPoolStoreService,
     private itemDefinitionsStore: ItemDefinitionsStoreService,
@@ -67,6 +68,11 @@ export class LootPoolsResolver {
     );
   }
 
+  /**
+   * Loads all loot pool definitions and builds the hierarchical tree structure
+   * used to display the loot pool table in the UI.
+   * Returns the populated tree or undefined if the root loot pool has no records.
+   */
   async initializeLootPoolsTableData(): Promise<LootPoolTableElement[]> {
     const allLootPools = await this.lootPoolsStore.getLootPoolDefinitions;
     const rootLootpool = allLootPools.find((x) => x.id === 'Root');
@@ -93,6 +99,7 @@ export class LootPoolsResolver {
     return this.lootPoolsTree;
   }
 
+  /** Performs a loot pool roll for the given pool ID and converts the roll results into fully configured game items. */
   async resolveLootPoolItems(id: string) {
     const rollResolutions: RollResolution[] =
       await this.singleLootPoolResolver.resolveSingleLootPool(id);
@@ -100,6 +107,12 @@ export class LootPoolsResolver {
     return this.changeRollWinnerToItems(rollResolutions, id);
   }
 
+  /**
+   * Converts a list of roll resolution results into fully populated BaseItem instances.
+   * Handles stackable and non-stackable items separately, applies type-specific conditions
+   * (such as ammo and magazine rolls for firearms), and generates any additional sibling items
+   * (e.g. spare magazines).
+   */
   private async changeRollWinnerToItems(
     rollResolutions: RollResolution[],
     rootLootPoolId: string
@@ -152,6 +165,7 @@ export class LootPoolsResolver {
     return itemsArray;
   }
 
+  /** Applies type-specific post-processing for an item. For firearms, resolves non-ammo attachments and triggers ammo/magazine rolls. */
   private resolveTypeSpecificConditionsForItem(item: BaseItem) {
     if (item.itemDef.type === 'firearm') {
       this.resolveNonAmmoAttachments(item);
@@ -162,6 +176,12 @@ export class LootPoolsResolver {
     }
   }
 
+  /**
+   * Generates and appends additional sibling items for the provided item based on its type.
+   * For firearms with detachable magazines, rolls up to three spare loaded magazines.
+   * For firearms with internal magazines, generates and splits ammo stacks to respect the stack-size limit.
+   * Special lower-capacity weapon types receive reduced or no additional ammo.
+   */
   private async resolveAdditionalTypeSpecificItems(
     item: BaseItem,
     itemsArray: BaseItem[]
@@ -255,6 +275,12 @@ export class LootPoolsResolver {
     }
   }
 
+  /**
+   * Rolls attachments for each non-ammo, non-magazine slot of a firearm item.
+   * For barrel slots the matching attachment definition is looked up by cartridge compatibility,
+   * tier, and attachment type (compensator or silencer). For other slots, the item is created
+   * directly from its definition ID. Skips slots whose roll result is 'null'.
+   */
   private async resolveNonAmmoAttachments(
     item: BaseItem<Partial<FirearmWeaponType>>
   ) {
@@ -314,6 +340,11 @@ export class LootPoolsResolver {
     }
   }
 
+  /**
+   * Reads the additional data map stored on a roll resolution and applies loot-pool-specific
+   * post-processing to the main item (e.g. rolling ballistic modules for armor,
+   * rolling mods for non-ballistic armor or melee weapons, or filling a liquid container).
+   */
   private resolveLootPoolAdditionalData(
     rollResolution: RollResolution,
     mainItem: BaseItem
@@ -369,6 +400,11 @@ export class LootPoolsResolver {
     }
   }
 
+  /**
+   * Creates a liquid item instance from the given definition ID, sets its amount to the
+   * bottle's full capacity, links it as a child of the bottle via parent IDs, and attaches
+   * it to the bottle's liquid slot. Recalculates the weight and size of both items afterwards.
+   */
   private async resolveLiquid(bottleItem: BaseItem, liquidDefId: string) {
     const liquidItem = await this.itemCreator.createItemFromDefinitionId(
       liquidDefId + '_default'
@@ -386,6 +422,11 @@ export class LootPoolsResolver {
     ItemsUtils.recalculateWeightSizeAndCapOfItem(bottleItem);
   }
 
+  /**
+   * Rolls the specified loot pool repeatedly until the required number of unique attachments
+   * is collected, then assigns them to the main item's attachment slot.
+   * Duplicate attachments are skipped to ensure variety.
+   */
   private async resolveAttachmentsForSpecificLootpool(
     targetLootPoolId: string,
     mainItem: BaseItem,
@@ -437,6 +478,11 @@ export class LootPoolsResolver {
     console.log('end of attachments roll', attachmentsArray);
   }
 
+  /**
+   * Rolls the specified mod loot pool until the required number of mods is gathered,
+   * attaches them to the main item, and applies any durability bonus contributed by the mods.
+   * For melee weapons, duplicate mods are allowed when the mod definition permits it.
+   */
   private async resolveModsForSpecificLootpool(
     targetLootPoolId: string,
     mainItem: BaseItem,
@@ -472,6 +518,11 @@ export class LootPoolsResolver {
     console.log('end of mods roll');
   }
 
+  /**
+   * Recursively builds a LootPoolTableElement for the given loot pool by collecting its
+   * non-internal child pools and converting them into nested table elements.
+   * The qualitative flag is set when any record in the pool or its descendants has quality-tier data.
+   */
   private populateLootpoolVisibleTreeChildren(
     targetLootPool: LootPool,
     allLootPools: LootPool[]
@@ -513,6 +564,7 @@ export class LootPoolsResolver {
     return result;
   }
 
+  /** Replaces underscore-separated segments with a space and an uppercased letter, making an ID human-readable. The method is named 'removeDashAndCapitalize' but operates on underscores. */
   private removeDashAndCapitalize(input: string) {
     return input.replace(
       /(\_\w?)/g,
